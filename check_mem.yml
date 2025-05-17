@@ -1,0 +1,12 @@
+---
+- name: Check free memory
+  hosts: all
+  gather_facts: no
+  tasks:
+    - name: Show memory usage
+      ansible.builtin.shell: free -h
+      register: memory_output
+
+    - name: Print memory output
+      ansible.builtin.debug:
+        var: memory_output.stdout

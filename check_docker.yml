@@ -1,0 +1,12 @@
+---
+- name: Check docker service
+  hosts: all
+  gather_facts: no
+  tasks:
+    - name: Check docker service
+      ansible.builtin.shell: systemctl status docker
+      register: check_docker_output
+
+    - name: Print docker output
+      ansible.builtin.debug:
+        var: check_docker_output.stdout

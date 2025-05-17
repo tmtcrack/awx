@@ -1,0 +1,12 @@
+---
+- name: Check disk usage
+  hosts: all
+  gather_facts: no
+  tasks:
+    - name: Show disk usage
+      ansible.builtin.shell: df -h
+      register: diskusage_output
+
+    - name: Print disk output
+      ansible.builtin.debug:
+        var: diskusage_output.stdout

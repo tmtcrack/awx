@@ -1,0 +1,12 @@
+---
+- name: Check CPU
+  hosts: all
+  gather_facts: no
+  tasks:
+    - name: Show CPU usage
+      ansible.builtin.shell: mpstat
+      register: cpu_output
+
+    - name: Print CPU output
+      ansible.builtin.debug:
+        var: cpu_output.stdout

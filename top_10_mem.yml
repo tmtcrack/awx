@@ -1,0 +1,12 @@
+---
+- name: Check Top-10 memory
+  hosts: all
+  gather_facts: no
+  tasks:
+    - name: Show Top-10 memory usage
+      ansible.builtin.shell:  ps -eo pid,lstart,cmd,%mem --sort=%mem | head -n 10
+      register: top_mem_output
+
+    - name: Print memory output
+      ansible.builtin.debug:
+        var: top_mem_output.stdout

@@ -4,8 +4,8 @@
   gather_facts: no
   vars:
     api_url: "https://api.telegram.org"
-    bot_token: "{{ 6391730139:AAHzKEP4uwqm_KWZ3sbVDsfR5AnWRB7m0iY }}"
-    chat_id: "{{ 526906914 }}"
+    bot_token: "6391730139:AAHzKEP4uwqm_KWZ3sbVDsfR5AnWRB7m0iY"
+    chat_id: "526906914"
 
   tasks:
     - name: Show CPU usage
